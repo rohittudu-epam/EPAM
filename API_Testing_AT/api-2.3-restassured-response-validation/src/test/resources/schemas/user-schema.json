@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "User Schema",
+  "description": "Schema for a user object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the user",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the user",
+      "minLength": 1
+    },
+    "username": {
+      "type": "string",
+      "description": "The username of the user",
+      "minLength": 1
+    },
+    "email": {
+      "type": "string",
+      "description": "The email address of the user",
+      "format": "email"
+    },
+    "address": {
+      "type": "object",
+      "description": "The address of the user",
+      "properties": {
+        "street": {
+          "type": "string"
+        },
+        "suite": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "zipcode": {
+          "type": "string"
+        },
+        "geo": {
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "string"
+            },
+            "lng": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "phone": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "company": {
+      "type": "object",
+      "description": "The company information",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "catchPhrase": {
+          "type": "string"
+        },
+        "bs": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": ["id", "name", "username", "email"],
+  "additionalProperties": true
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+        name="D:/Old Files/EPAM/Adv_UI_Test/selenium-2.3-advanced-browser-scenarios">
+        <classes>
+            <class name="com.epam.campus.selenium.BrowserTests.AdvancedBrowserScenarioTests">
+                <methods>
+                    <include name="testHandleAlert" />
+                    <include name="testHandlePopUp" />
+                    <include name="testWindowSwitching" />
+                    <include name="testIframeSwitching" />
+                    <include name="testManageCookies" />
+                    <include name="testClearCache" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

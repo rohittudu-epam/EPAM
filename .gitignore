@@ -1,0 +1,98 @@
+# Compiled Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Build output
+target/
+build/
+out/
+dist/
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+atlassian-ide-plugin.xml
+
+# Eclipse
+.classpath
+.project
+.settings/
+.factorypath
+bin/
+
+# VS Code
+.vscode/
+
+# NetBeans
+nbproject/
+nbbuild/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Node / npm
+node_modules/
+npm-debug.log*
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+logs/
+log/
+
+# OS generated
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Test results / reports
+test-results/
+surefire-reports/
+allure-results/
+allure-report/
+extent-reports/
+screenshots/
+
+# Large archive files (exceed GitHub's 100MB limit)
+*.zip
+*.tar.gz
+*.tar
+*.rar
+*.7z
+
+# Temp files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Selenium / WebDriver
+chromedriver
+geckodriver
+*.exe
+
+# Environment / secrets
+.env
+*.properties.local
+secrets/
+
+# Codemie internals
+.codemie/

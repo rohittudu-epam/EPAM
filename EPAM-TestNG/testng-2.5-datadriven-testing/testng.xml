@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="DataDrivenTestSuite" verbose="2" parallel="false">
+    <test name="Calculator Data Driven Tests">
+        <classes>
+            <class name="com.epam.campus.testng.CalculatorDataDrivenTest">
+                <methods>
+                    <include name="testAdditionWithData"/>
+                    <include name="testSubtractWithData"/>
+                    <include name="testMultiplyWithData"/>
+                    <include name="testDivisionWithData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

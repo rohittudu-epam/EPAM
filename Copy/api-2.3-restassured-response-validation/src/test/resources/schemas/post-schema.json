@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Post Schema",
+  "description": "Schema for a single post object",
+  "properties": {
+    "userId": {
+      "type": "integer",
+      "description": "The ID of the user who created the post",
+      "minimum": 1
+    },
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the post",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the post",
+      "minLength": 1
+    },
+    "body": {
+      "type": "string",
+      "description": "The body content of the post",
+      "minLength": 1
+    }
+  },
+  "required": ["userId", "id", "title", "body"],
+  "additionalProperties": false
+}

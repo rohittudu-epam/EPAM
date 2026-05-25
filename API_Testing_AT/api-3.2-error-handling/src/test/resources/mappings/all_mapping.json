@@ -1,0 +1,273 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/students",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer my-unique-bearer-token007"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "[{\"id\":\"123451\",\"firstName\":\"John\",\"lastName\":\"Doe\",\"email\":\"john.doe@example.com\",\"age\":21,\"enrolledCourses\":[\"Math 101\",\"Science 102\"],\"address\":{\"houseNumber\":\"123\",\"street\":\"Main Street\",\"city\":\"Los Angeles\",\"state\":\"California\",\"zipcode\":\"90001\"}},{\"id\":\"678901\",\"firstName\":\"Jane\",\"lastName\":\"Smith\",\"email\":\"jane.smith@example.com\",\"age\":20,\"enrolledCourses\":[\"History 201\"],\"address\":{\"houseNumber\":\"456\",\"street\":\"Elm Street\",\"city\":\"San Francisco\",\"state\":\"California\",\"zipcode\":\"94103\"}}]",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "POST",
+        "urlPath": "/api/students",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": "$[?(@.firstName == '')]"
+          }
+        ]
+      },
+      "response": {
+        "status": 400,
+        "body": "{\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing required fields: firstName, lastName, or email.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "POST",
+        "urlPath": "/api/students",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": "$[?(@.lastName == '')]"
+          }
+        ]
+      },
+      "response": {
+        "status": 400,
+        "body": "{\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing required fields: firstName, lastName, or email.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "POST",
+        "urlPath": "/api/students",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": "$[?(@.email == '')]"
+          }
+        ]
+      },
+      "response": {
+        "status": 400,
+        "body": "{\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing required fields: firstName, lastName, or email.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "POST",
+        "urlPath": "/api/students",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": "$.firstName"
+          },
+          {
+            "matchesJsonPath": "$.lastName"
+          },
+          {
+            "matchesJsonPath": "$.email"
+          }
+        ]
+      },
+      "response": {
+        "status": 201,
+        "body": "{\n  \"id\": \"{{randomValue length=6 type='NUMERIC'}}\",\n  \"firstName\": \"{{jsonPath request.body '$.firstName'}}\",\n  \"lastName\": \"{{jsonPath request.body '$.lastName'}}\",\n  \"email\": \"{{jsonPath request.body '$.email'}}\",\n  \"age\": {{jsonPath request.body '$.age'}},\n  \"enrolledCourses\": {{jsonPath request.body '$.enrolledCourses'}},\n  \"address\": {\n    \"houseNumber\": \"{{jsonPath request.body '$.address.houseNumber'}}\",\n    \"street\": \"{{jsonPath request.body '$.address.street'}}\",\n    \"city\": \"{{jsonPath request.body '$.address.city'}}\",\n    \"state\": \"{{jsonPath request.body '$.address.state'}}\",\n    \"zipcode\": \"{{jsonPath request.body '$.address.zipcode'}}\"\n  }\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "transformers": [
+          "response-template"
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/api/students/.*",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer my-unique-bearer-token007"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": "{\"id\":\"12345\",\"firstName\":\"John\",\"lastName\":\"Doe\",\"email\":\"john.doe@example.com\",\"age\":21,\"enrolledCourses\":[\"Math 101\",\"Science 102\"],\"address\":{\"houseNumber\":\"123\",\"street\":\"Main Street\",\"city\":\"Los Angeles\",\"state\":\"California\",\"zipcode\":\"90001\"}}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "PUT",
+        "urlPathPattern": "/api/students/.*",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer my-unique-bearer-token007"
+          }
+        },
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": "$.firstName"
+          },
+          {
+            "matchesJsonPath": "$.lastName"
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "body": "{\n  \"id\": \"{{request.pathSegments.[2]}}\",\n  \"firstName\": \"{{jsonPath request.body '$.firstName'}}\",\n  \"lastName\": \"{{jsonPath request.body '$.lastName'}}\",\n  \"email\": \"{{jsonPath request.body '$.email'}}\",\n  \"age\": {{jsonPath request.body '$.age'}},\n  \"enrolledCourses\": {{jsonPath request.body '$.enrolledCourses'}},\n  \"address\": {\n    \"houseNumber\": \"{{jsonPath request.body '$.address.houseNumber'}}\",\n    \"street\": \"{{jsonPath request.body '$.address.street'}}\",\n    \"city\": \"{{jsonPath request.body '$.address.city'}}\",\n    \"state\": \"{{jsonPath request.body '$.address.state'}}\",\n    \"zipcode\": \"{{jsonPath request.body '$.address.zipcode'}}\"\n  }\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "transformers": [
+          "response-template"
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "DELETE",
+        "urlPathPattern": "/api/students/.*",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer my-unique-bearer-token007"
+          }
+        }
+      },
+      "response": {
+        "status": 204
+      }
+    },
+    {
+      "priority": 20,
+      "request": {
+        "method": "POST",
+        "urlPath": "/api/students"
+      },
+      "response": {
+        "status": 400,
+        "body": "{\n  \"error\": \"Bad Request\",\n  \"message\": \"Missing required fields: firstName, lastName, or email.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/students",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer my-incorrect-bearer-token007"
+          }
+        }
+      },
+      "response": {
+        "status": 401,
+        "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"You must be logged in to access this resource.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/students/non-exist-id",
+        "headers": {
+          "Authorization": {
+            "equalTo": "Bearer my-unique-bearer-token007"
+          }
+        }
+      },
+      "response": {
+        "status": 404,
+        "body": "{\n  \"error\": \"Not Found\",\n  \"message\": \"Student with the requested ID does not exist.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/api/students",
+        "queryParameters": {
+          "sortField": {
+            "matches": "non-existent-field"
+          }
+        }
+      },
+      "response": {
+        "status": 422,
+        "body": "{\n  \"error\": \"Unprocessable Entity\",\n  \"message\": \"The requested field for sorting does not exist.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "urlPath": "/api/students",
+        "headers": {
+          "Authorization": {
+            "absent": true
+          }
+        }
+      },
+      "response": {
+        "status": 403,
+        "body": "{\n  \"error\": \"Forbidden\",\n  \"message\": \"Authorization header is missing. Please provide valid credentials.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    {
+      "priority": 30,
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/students",
+        "headers": {
+          "Authorization": {
+            "absent": true
+          }
+        }
+      },
+      "response": {
+        "status": 403,
+        "body": "{\n  \"error\": \"Forbidden\",\n  \"message\": \"Authorization header is missing. Please provide valid credentials.\"\n}",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  ]
+}

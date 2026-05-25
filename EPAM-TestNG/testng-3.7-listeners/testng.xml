@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All Test Suite" verbose="2">
+
+    <listeners>
+        <listener class-name="com.epam.campus.testng.listeners.MyListener"/>
+    </listeners>
+
+    <test name="TestNG Listener Demo" preserve-order="true">
+        <classes>
+            <class name="com.epam.campus.testng.ListenerTest"/>
+        </classes>
+    </test>
+
+</suite>

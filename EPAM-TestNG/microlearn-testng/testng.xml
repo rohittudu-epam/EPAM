@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="methods" thread-count="3">
+    <listeners>
+        <listener class-name="com.epam.campus.BankAccountTestListener"/>
+    </listeners>
+    
+    <test verbose="2" preserve-order="true" name="Initialization Tests">
+        <classes>
+            <class name="com.epam.campus.BankAccountInitializationTests"/>
+        </classes>
+    </test>
+    
+    <test verbose="2" preserve-order="true" name="Transaction Tests">
+        <classes>
+            <class name="com.epam.campus.BankAccountTransactionTests"/>
+        </classes>
+    </test>
+    
+    <test verbose="2" preserve-order="true" name="Exception Tests">
+        <classes>
+            <class name="com.epam.campus.BankAccountExceptionTests"/>
+        </classes>
+    </test>
+    
+    <test verbose="2" preserve-order="true" name="Data Driven Tests">
+        <classes>
+            <class name="com.epam.campus.BankAccountDataDrivenTests"/>
+        </classes>
+    </test>
+    
+    <test verbose="2" preserve-order="true" name="Parameterized Tests">
+        <classes>
+            <class name="com.epam.campus.BankAccountParameterizedTests">
+                <methods>
+                    <include name="testWithdrawalWithXMLParameters"/>
+                    <include name="testAccountInitializationWithXMLParameters"/>
+                    <include name="testDepositWithXMLParameters"/>
+                </methods>
+            </class>
+        </classes>
+        <parameter name="initialBalance" value="500"/>
+        <parameter name="withdrawalAmount" value="100"/>
+        <parameter name="expectedBalance" value="400"/>
+    </test>
+    
+    <test verbose="2" preserve-order="true" name="Parameterized Initialization Test">
+        <classes>
+            <class name="com.epam.campus.BankAccountParameterizedTests">
+                <methods>
+                    <include name="testAccountInitializationWithXMLParameters"/>
+                </methods>
+            </class>
+        </classes>
+        <parameter name="initialBalance" value="1000"/>
+        <parameter name="holderName" value="Jane Doe"/>
+    </test>
+    
+    <test verbose="2" preserve-order="true" name="Parameterized Deposit Test">
+        <classes>
+            <class name="com.epam.campus.BankAccountParameterizedTests">
+                <methods>
+                    <include name="testDepositWithXMLParameters"/>
+                </methods>
+            </class>
+        </classes>
+        <parameter name="initialBalance" value="800"/>
+        <parameter name="depositAmount" value="200"/>
+        <parameter name="expectedBalance" value="1000"/>
+    </test>
+    
+    <test verbose="2" preserve-order="true" name="Advanced Control Tests">
+        <classes>
+            <class name="com.epam.campus.BankAccountAdvancedControlTests"/>
+        </classes>
+    </test>
+</suite>

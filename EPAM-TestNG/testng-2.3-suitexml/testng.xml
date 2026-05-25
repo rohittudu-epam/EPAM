@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="CalculatorTestSuite" parallel="tests" thread-count="3">
+
+    <test name="CalculatorTests" parallel="classes" thread-count="3">
+        <classes>
+
+            <class name="com.epam.campus.testng.CalculatorAdditionTest">
+                <methods>
+                    <include name="testNegativeAddition"/>
+                    <exclude name="mixedAdditionSubtraction"></exclude>
+                </methods>
+            </class>
+
+            <class name="com.epam.campus.testng.CalculatorMultiplicationTest">
+                <methods>
+                    <include name="testDivisionByZero"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+
+</suite>

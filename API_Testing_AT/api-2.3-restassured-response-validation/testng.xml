@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.epam.campus.restassured.listeners.TestListener"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="D:/EPAM/API_Testing_AT/api-2.3-restassured-response-validation">
+        <classes>
+            <class name="com.epam.campus.restassured.tests.body.BodyValidationTests">
+                <methods>
+                    <include name="validateIndividualPostFields"/>
+                    <include name="validatePostIdEqualsOne"/>
+                    <include name="validatePostTitleNotNull"/>
+                    <include name="validateResponseContainsExpectedKeys"/>
+                    <include name="validateBodyContent"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.restassured.tests.headers.HeaderValidationTests">
+                <methods>
+                    <include name="validateContentTypeHeader"/>
+                    <include name="validateCacheControlHeader"/>
+                    <include name="validateAllHeadersPresent"/>
+                    <include name="validateSpecificHeaderValue"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.restassured.tests.integration.CombinedValidationTests">
+                <methods>
+                    <include name="validatePostEndpointEndToEnd"/>
+                    <include name="validateUserWorkflowScenario"/>
+                    <include name="validatePostsWorkflowScenario"/>
+                    <include name="validateErrorScenarios"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.restassured.tests.jsonpath.JsonPathValidationTests">
+                <methods>
+                    <include name="extractTitleUsingJsonPath"/>
+                    <include name="validatePostsCountForUser"/>
+                    <include name="validateAllPostsBelongToUser"/>
+                    <include name="validateNestedJsonFields"/>
+                    <include name="iterateAndValidateArrayElements"/>
+                    <include name="extractAndValidateMultipleValues"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.restassured.tests.performance.PerformanceTests">
+                <methods>
+                    <include name="validateResponseTimeUnder200ms"/>
+                    <include name="validateResponseTimeUsingAssertions"/>
+                    <include name="validateMultipleEndpointsPerformance"/>
+                    <include name="logResponseTime"/>
+                    <include name="validateAverageResponseTime"/>
+                    <include name="validatePerformanceWithLargePayload"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.restassured.tests.schema.SchemaValidationTests">
+                <methods>
+                    <include name="validateSinglePostSchema"/>
+                    <include name="validatePostsArraySchema"/>
+                    <include name="validateUserSchema"/>
+                    <include name="validateSchemaWithAssertions"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.restassured.tests.status.StatusCodeTests">
+                <methods>
+                    <include name="validateGetPostStatusCode"/>
+                    <include name="validateCreatePostStatusCode"/>
+                    <include name="validateInvalidEndpointReturns404"/>
+                    <include name="validateBadRequestReturns400"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

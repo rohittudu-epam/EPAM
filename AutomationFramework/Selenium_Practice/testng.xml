@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="10">
+    <test verbose="2" name="ChromeTests">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.Advanced.Alerts">
+                <methods>
+                    <include name="testHandleJsAlerts"/>
+                    <include name="IFrameTests"/>
+                    <include name="JavaScriptExecutorTests"/>
+                    <include name="LevelActionTests"/>
+                    <include name="PopUpTests" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" name="FirefoxTests">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="tests.Advanced.Alerts">
+                <methods>
+                    <include name="testHandleJsAlerts"/>
+                    <include name="IFrameTests"/>
+                    <include name="JavaScriptExecutorTests"/>
+                    <include name="LevelActionTests"/>
+                    <include name="PopUpTests" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

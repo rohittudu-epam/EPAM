@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/EPAM/API_Testing_AT/API_Testing">
+        <classes>
+            <class name="RESTAssuredExamples.BaseTest.BaseTest"/>
+            <class name="RESTAssuredExamples.AuthenticationTests.AuthTests">
+                <methods>
+                    <include name="testBasicAuth"/>
+<!--                    <include name="testPreemptAuth"/>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

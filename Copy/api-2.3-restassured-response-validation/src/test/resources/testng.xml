@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RestAssured API Validation Test Suite" verbose="2" thread-count="1">
+
+    <listeners>
+        <listener class-name="com.epam.campus.restassured.listeners.TestListener" />
+    </listeners>
+
+    <!-- Status Code Tests -->
+    <test name="Status Code Validation Tests" preserve-order="true">
+        <classes>
+            <class name="com.epam.campus.restassured.tests.status.StatusCodeTests">
+                <methods>
+                    <include name="validateGetPostStatusCode" />
+                    <include name="validateCreatePostStatusCode" />
+                    <include name="validateInvalidEndpointReturns404" />
+                    <include name="validateBadRequestReturns400" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Header Validation Tests -->
+    <test name="Header Validation Tests" preserve-order="true">
+        <classes>
+            <class name="com.epam.campus.restassured.tests.headers.HeaderValidationTests">
+                <methods>
+                    <include name="validateContentTypeHeader" />
+                    <include name="validateCacheControlHeader" />
+                    <include name="validateContentLengthHeaderExists" />
+                    <include name="validateAllHeadersPresent" />
+                    <include name="validateSpecificHeaderValue" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Body Validation Tests -->
+    <test name="Body Validation Tests" preserve-order="true">
+        <classes>
+            <class name="com.epam.campus.restassured.tests.body.BodyValidationTests">
+                <methods>
+                    <include name="validateSinglePostFields" />
+                    <include name="validatePostIdEqualsOne" />
+                    <include name="validatePostTitleNotNull" />
+                    <include name="validateResponseContainsExpectedKeys" />
+                    <include name="validateBodyContent" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- JsonPath Validation Tests -->
+    <test name="JsonPath Validation Tests" preserve-order="true">
+        <classes>
+            <class name="com.epam.campus.restassured.tests.jsonpath.JsonPathValidationTests">
+                <methods>
+                    <include name="extractTitleUsingJsonPath" />
+                    <include name="validatePostsCountForUser" />
+                    <include name="validateAllPostsBelongToUser" />
+                    <include name="validateNestedJsonFields" />
+                    <include name="iterateAndValidateArrayElements" />
+                    <include name="extractAndValidateMultipleValues" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Schema Validation Tests -->
+    <test name="Schema Validation Tests" preserve-order="true">
+        <classes>
+            <class name="com.epam.campus.restassured.tests.schema.SchemaValidationTests">
+                <methods>
+                    <include name="validateSinglePostSchema" />
+                    <include name="validatePostsArraySchema" />
+                    <include name="validateUserSchema" />
+                    <include name="validateSchemaWithAssertions" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Performance Tests -->
+    <test name="Performance Tests" preserve-order="true">
+        <classes>
+            <class name="com.epam.campus.restassured.tests.performance.PerformanceTests">
+                <methods>
+                    <include name="validateResponseTimeUnder200ms" />
+                    <include name="validateResponseTimeUsingAssertions" />
+                    <include name="validateMultipleEndpointsPerformance" />
+                    <include name="logResponseTime" />
+                    <include name="validateAverageResponseTime" />
+                    <include name="validatePerformanceWithLargePayload" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <!-- Combined/Integration Tests -->
+    <test name="Integration Tests" preserve-order="true">
+        <classes>
+            <class name="com.epam.campus.restassured.tests.integration.CombinedValidationTests">
+                <methods>
+                    <include name="validatePostEndpointEndToEnd" />
+                    <include name="validateUserWorkflowScenario" />
+                    <include name="validatePostsWorkflowScenario" />
+                    <include name="validateErrorScenarios" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

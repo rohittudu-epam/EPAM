@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="ParallelExecutionSuite"
+       parallel="methods"
+       thread-count="4">
+
+    <test name="CalculatorGroupTests">
+        <groups>
+            <run>
+                <include name="arithmetic"/>
+                <include name="advanced"/>
+                <exclude name="edge-cases"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="com.epam.campus.testng.CalculatorGroupTest"/>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RestAssured API Testing Suite" verbose="2" parallel="false" thread-count="1">
+    
+    <test name="Sample Tests - Core Functionality">
+        <description>Tests for core GET, POST, and comment retrieval functionality</description>
+        <classes>
+            <class name="com.epam.campus.restassured.SampleTest">
+                <methods>
+                    <include name="testGetPostById"/>
+                    <include name="testCreatePost"/>
+                    <include name="testGetCommentsByPostId"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="GET Tests - Comprehensive Endpoint Testing">
+        <description>Tests for various GET endpoints including posts and comments</description>
+        <classes>
+            <class name="com.epam.campus.restassured.GETtests">
+                <methods>
+                    <include name="testGetAllPosts"/>
+                    <include name="testGetPostById"/>
+                    <include name="testGetCommentsByPostId"/>
+                    <include name="testGetAllComments"/>
+                    <include name="testGetPostsByUserId"/>
+                    <include name="testGetCommentById"/>
+                    <include name="testGetResponseHeaders"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="POST Tests - Resource Creation">
+        <description>Tests for creating new posts and resources via POST requests</description>
+        <classes>
+            <class name="com.epam.campus.restassured.POSTtests">
+                <methods>
+                    <include name="testCreateNewPost"/>
+                    <include name="testCreatePostWithMultipleFields"/>
+                    <include name="testPostResponseContainsAllFields"/>
+                    <include name="testCreatePostWithSpecificUser"/>
+                    <include name="testPostResponseHeaders"/>
+                    <include name="testCreateMultiplePosts"/>
+                    <include name="testCreatePostWithLongContent"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

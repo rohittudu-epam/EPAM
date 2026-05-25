@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Grid Parallel Suite" parallel="tests" thread-count="3" data-provider-thread-count="3">
+    <test verbose="2" preserve-order="true" name="Chrome Tests">
+        <parameter name="browser" value="CHROME"/>
+        <classes>
+            <class name="com.epam.campus.selenium.Interactions.WebElementInteractionTests">
+                <methods>
+                    <include name="testButtonClick"/>
+                    <include name="testSendTextInput"/>
+                    <include name="testClearField"/>
+                    <include name="testDropdownSelection"/>
+                    <include name="testMouseHover"/>
+                    <include name="testClickAndHold"/>
+                    <include name="testDragAndDrop"/>
+                    <include name="testKeyboardEvents"/>
+                    <include name="testFileUpload"/>
+                    <include name="testFileDownload"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test verbose="2" preserve-order="true" name="Firefox Tests">
+        <parameter name="browser" value="FIREFOX"/>
+        <classes>
+            <class name="com.epam.campus.selenium.Interactions.WebElementInteractionTests">
+                <methods>
+                    <include name="testButtonClick"/>
+                    <include name="testSendTextInput"/>
+                    <include name="testClearField"/>
+                    <include name="testDropdownSelection"/>
+                    <include name="testMouseHover"/>
+                    <include name="testClickAndHold"/>
+                    <include name="testDragAndDrop"/>
+                    <include name="testKeyboardEvents"/>
+                    <include name="testFileUpload"/>
+                    <include name="testFileDownload"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test verbose="2" preserve-order="true" name="Edge Tests">
+        <parameter name="browser" value="EDGE"/>
+        <classes>
+            <class name="com.epam.campus.selenium.Interactions.WebElementInteractionTests">
+                <methods>
+                    <include name="testButtonClick"/>
+                    <include name="testSendTextInput"/>
+                    <include name="testClearField"/>
+                    <include name="testDropdownSelection"/>
+                    <include name="testMouseHover"/>
+                    <include name="testClickAndHold"/>
+                    <include name="testDragAndDrop"/>
+                    <include name="testKeyboardEvents"/>
+                    <include name="testFileUpload"/>
+                    <include name="testFileDownload"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

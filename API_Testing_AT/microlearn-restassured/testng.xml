@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/EPAM/API_Testing_AT/microlearn-restassured">
+        <classes>
+            <class name="com.epam.campus.AccountsManagementTests">
+                <methods>
+                    <include name="testRegisterUserWithValidData"/>
+                    <include name="testRegisterUserWithDuplicateLogin"/>
+                    <include name="testRegisterUserWithInvalidEmail"/>
+                    <include name="testRegisterUserWithShortPassword"/>
+                    <include name="testRegisterUserWithMissingFields"/>
+                    <include name="testResetPasswordInitWithValidEmail"/>
+                    <include name="testResetPasswordInitWithNonExistentEmail"/>
+                    <include name="testResetPasswordInitInvalidEmailFormat"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.AuthenticationTests">
+                <methods>
+                    <include name="testAuthenticateWithValidCredentials"/>
+                    <include name="testAuthenticateWithRememberMe"/>
+                    <include name="testAuthenticationWithValidCredentials"/>
+                    <include name="testAuthenticationWithInvalidUsername"/>
+                    <include name="testAuthenticateWithInvalidPassword"/>
+                    <include name="testAuthenticationWithEmptyCredentials"/>
+                    <include name="testAuthenticateWithMissingFields"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.BankAccountTests">
+                <methods>
+                    <include name="testGetAllBankAccounts"/>
+                    <include name="testGetAllBankAccountsWithoutAuth"/>
+                    <include name="testCreateBankAccount"/>
+                    <include name="testCreateBankAccountWithoutAuth"/>
+                    <include name="testCreateBankAccountWithMissingFields"/>
+                    <include name="testUpdateBankAccounts"/>
+                    <include name="testDeleteBankAccount"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.OperationsManagementTests">
+                <methods>
+                    <include name="testGetAllOperations"/>
+                    <include name="testGetAllOperationsWithoutAuth"/>
+                    <include name="testCreateOperation"/>
+                    <include name="testCreateOperationWithNegativeAmount"/>
+                    <include name="testCreateOperationWithoutAuth"/>
+                    <include name="testCreateOperationWithMissingFields"/>
+                    <include name="testCreateOperationWithInvalidBankAccount"/>
+                    <include name="testCreateOperationWithInvalidDateFormat"/>
+                    <include name="testInvalidHttpMethodOnOperations"/>
+                    <include name="testGetOperationsWithPagination"/>
+                </methods>
+            </class>
+            <class name="com.epam.campus.UserManagementTests">
+                <methods>
+                    <include name="testGetAllUsers"/>
+                    <include name="testGetAllUsersWithoutAuth"/>
+                    <include name="testCreateUser"/>
+                    <include name="testCreateUserWithDuplicateLogin"/>
+                    <include name="testCreateUserWithoutAuth"/>
+                    <include name="testCreateUserWithInvalidEmail"/>
+                    <include name="testUpdateUserByLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

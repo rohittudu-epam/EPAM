@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Calculator Parameterized Test Suite" verbose="2">
+
+    <test name="Calculator Parameterized Tests" preserve-order="true">
+
+        <!-- Addition Parameters -->
+        <parameter name="addA" value="10"/>
+        <parameter name="addB" value="5"/>
+        <parameter name="addExpected" value="15"/>
+
+        <!-- Subtraction Parameters -->
+        <parameter name="subA" value="20"/>
+        <parameter name="subB" value="5"/>
+        <parameter name="subExpected" value="15"/>
+
+        <!-- Multiplication Parameters -->
+        <parameter name="mulA" value="4"/>
+        <parameter name="mulB" value="5"/>
+        <parameter name="mulExpected" value="20"/>
+
+        <!-- Division Parameters -->
+        <parameter name="divA" value="20"/>
+        <parameter name="divB" value="4"/>
+        <parameter name="divExpected" value="5"/>
+
+        <classes>
+            <class name="com.epam.campus.testng.CalculatorParametrizedTest">
+                <methods>
+                    <include name="testAddition"/>
+                    <include name="testSubtraction"/>
+                    <include name="testMultiplication"/>
+                    <include name="testDivision"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>
